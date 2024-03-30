@@ -7,9 +7,10 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemies;
     public GameObject powerup;
 
-    private float zEnemySpawn = 12.0f;
-    private float xSpawnRange = 16.0f;
-    private float zPowerupRange = 5.0f;
+    private float zEnemySpawn = 10.0f;
+    private float xSpawnRange = 12.0f;
+    private float minZPowerupRange = -5.0f;
+    private float maxZPowerupRange = 2.0f;
     private float ySpawn = 0.75f;
 
     private float powerupSpawnTime = 5.0f;
@@ -42,7 +43,7 @@ public class SpawnManager : MonoBehaviour
     void SpawnPowerup()
     {
         float randomX = Random.Range(-xSpawnRange, xSpawnRange);
-        float randomZ = Random.Range(-zPowerupRange, zPowerupRange);
+        float randomZ = Random.Range(minZPowerupRange, maxZPowerupRange);
 
         Vector3 spawnPos = new Vector3(randomX, ySpawn, randomZ);
 
